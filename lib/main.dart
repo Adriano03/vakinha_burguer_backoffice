@@ -8,5 +8,5 @@ import 'src/core/env/env.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Env.instance.load();
-  runApp(ModularApp(module: AppModule(), child: const AppWidget()));
+  runApp(ModularApp(module: AppModule(), child: AppWidget()));
 }

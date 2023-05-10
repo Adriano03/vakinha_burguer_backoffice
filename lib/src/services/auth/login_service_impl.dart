@@ -13,6 +13,6 @@ class LoginServiceImpl implements LoginService {
   Future<void> execute(String email, String password) async {
     final authModel = await _authRepository.login(email, password);
 
-    _storage.setData(SessionStorageKeys.accesToken.key, authModel.accessToken);
+    _storage.setData(SessionStorageKeys.accessToken.key, authModel.accessToken);
   }
 }

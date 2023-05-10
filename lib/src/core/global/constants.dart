@@ -1,5 +1,5 @@
 enum SessionStorageKeys {
-  accesToken('/ACCESS_TOKEN/');
+  accessToken('/ACCESS_TOKEN/');
 
   final String key;
 
