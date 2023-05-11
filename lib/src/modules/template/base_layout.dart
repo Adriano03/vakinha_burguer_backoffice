@@ -50,7 +50,7 @@ class BaseLayout extends StatelessWidget {
                     Expanded(
                       child: Container(
                         padding: const EdgeInsets.only(left: 20),
-                        color: Colors.grey[50],
+                        color: Colors.grey.shade200,
                         child: body,
                       ),
                     ),

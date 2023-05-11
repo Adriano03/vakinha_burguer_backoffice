@@ -22,10 +22,21 @@ Aula 1
 
 
 Aula 2
+
 - Implementar a tela de login;
 - Implementação da Home, template e menuBar;
 - Implementação base route com RouterOutlet;
 - Criação do PaymentType Module;
 - Implementação do interceptor de auth, Interceptor e GlobalContext;
 - Implementação do PaymentData Layer;
+
+
+Aula 3
+
+- Criação e implementação da tela de pagamento com widget personalizado base_header;
+- Implementação da busca de pagamentos na tela pagamentType;
+- Criação da model de criação e alteração de pagamentos;
+- Implementação do filtro de pagamento se está ativo, ou inativo ou para mostrar ambos;
+- Implementação da tela para criar e editar pagamentos;
+
 
