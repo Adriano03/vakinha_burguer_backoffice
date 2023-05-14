@@ -43,12 +43,14 @@ mixin Messages<T extends StatefulWidget> on State<T> {
   }
 
   void _showSnackBar(AwesomeSnackbarContent content) {
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-      content: content,
-      elevation: 0,
-      behavior: SnackBarBehavior.floating,
-      padding: const EdgeInsets.only(top: 72),
-      backgroundColor: Colors.transparent,
-    ));
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: content,
+        elevation: 0,
+        behavior: SnackBarBehavior.floating,
+        padding: const EdgeInsets.only(top: 72),
+        backgroundColor: Colors.transparent,
+      ),
+    );
   }
 }

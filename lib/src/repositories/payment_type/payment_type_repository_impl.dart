@@ -48,11 +48,13 @@ class PaymentTypeRepositoryImpl implements PaymentTypeRepository {
       final client = _dio.auth();
 
       if (model.id != null) {
+        //Editar
         await client.put(
           '/payment-types/${model.id}',
           data: model.toMap(),
         );
       } else {
+        // Salvar
         await client.post(
           '/payment-types/',
           data: model.toMap(),

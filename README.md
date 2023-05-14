@@ -40,3 +40,19 @@ Aula 3
 - Implementação da tela para criar e editar pagamentos;
 
 
+Aula 4 
+
+- Criação do modulo e rotas home e detail do produto;
+- Criação da página de home de produto e product Item;
+- Implementação do Product Data Layer;
+- Implementação do metódo Salvar Produto no data layer;
+- Realizar a busca dos produtos no backend;
+- Implementação do filtro de busca da tela de produtos;
+- Criação do layout da tela de salvar produto;
+- Implementação da tela de salvar produto;
+- Implementação do upload da imagem do produto;
+
+
+Aula 5
+
+-

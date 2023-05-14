@@ -28,7 +28,7 @@ class BaseHeader extends StatelessWidget {
           children: [
             Visibility(
               visible: filterWidget == null,
-              replacement: filterWidget ?? const Text('TOAQUI'),
+              replacement: filterWidget ?? const SizedBox.shrink(),
               child: SizedBox(
                 width: constrains.maxWidth * .15,
                 child: TextFormField(
@@ -67,7 +67,7 @@ class BaseHeader extends StatelessWidget {
               visible: addButton,
               child: SizedBox(
                 height: 48,
-                width: constrains.maxWidth * .15,
+                width: constrains.maxWidth * .18,
                 child: OutlinedButton.icon(
                   onPressed: buttonPressed,
                   icon: Icon(
