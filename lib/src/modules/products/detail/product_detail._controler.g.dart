@@ -63,14 +63,56 @@ mixin _$ProductDetailControler on ProductDetailControlerBase, Store {
     });
   }
 
+  late final _$_productModelAtom =
+      Atom(name: 'ProductDetailControlerBase._productModel', context: context);
+
+  ProductModel? get productModel {
+    _$_productModelAtom.reportRead();
+    return super._productModel;
+  }
+
+  @override
+  ProductModel? get _productModel => productModel;
+
+  @override
+  set _productModel(ProductModel? value) {
+    _$_productModelAtom.reportWrite(value, super._productModel, () {
+      super._productModel = value;
+    });
+  }
+
   late final _$uploadImageProductAsyncAction = AsyncAction(
-    'ProductDetailControlerBase.uploadImageProduct',
-    context: context,
-  );
+      'ProductDetailControlerBase.uploadImageProduct',
+      context: context);
 
   @override
   Future<void> uploadImageProduct(Uint8List file, String fileName) {
-    return _$uploadImageProductAsyncAction.run(() => super.uploadImageProduct(file, fileName));
+    return _$uploadImageProductAsyncAction
+        .run(() => super.uploadImageProduct(file, fileName));
+  }
+
+  late final _$saveAsyncAction =
+      AsyncAction('ProductDetailControlerBase.save', context: context);
+
+  @override
+  Future<void> save(String name, double price, String description) {
+    return _$saveAsyncAction.run(() => super.save(name, price, description));
+  }
+
+  late final _$loadProductAsyncAction =
+      AsyncAction('ProductDetailControlerBase.loadProduct', context: context);
+
+  @override
+  Future<void> loadProduct(int? id) {
+    return _$loadProductAsyncAction.run(() => super.loadProduct(id));
+  }
+
+  late final _$deleteProductAsyncAction =
+      AsyncAction('ProductDetailControlerBase.deleteProduct', context: context);
+
+  @override
+  Future<void> deleteProduct() {
+    return _$deleteProductAsyncAction.run(() => super.deleteProduct());
   }
 
   @override

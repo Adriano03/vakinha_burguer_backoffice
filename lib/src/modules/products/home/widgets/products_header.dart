@@ -16,10 +16,7 @@ class ProductsHeader extends StatelessWidget {
     return BaseHeader(
       title: 'ADMINISTRAR PRODUTOS',
       buttonLabel: 'ADICIONAR PRODUTO',
-      buttonPressed: () async {
-      await  Modular.to.pushNamed('/products/detail');
-      controller.loadProducts();
-      },
+      buttonPressed: controller.addProduct,
       searchChange: (name) {
         debouncer.call(() {
           controller.filterByName(name);

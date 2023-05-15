@@ -55,4 +55,8 @@ Aula 4
 
 Aula 5
 
--
+- Criação do modulo de pedido;
+- Criação do layout da tela de pedido;
+- Implementação do Order Data Layer;
+- implementação da tela de lista de pedidos;
+- Criação da tela detalhe de pedido;
