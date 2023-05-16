@@ -19,8 +19,6 @@ class GetOrderByIdImpl implements GetOrderById {
   Future<OrderDto> call(OrderModel order) => _orderDtoParse(order);
 
   Future<OrderDto> _orderDtoParse(OrderModel order) async {
-    final start = DateTime.now();
-    
     // Busca os dados com id do tipo de pagamento;
     final paymentTypeFuture = _paymentTypeRepository.getById(order.paymentTypeId);
     // Busca os dados com o id do usuário;
@@ -30,7 +28,6 @@ class GetOrderByIdImpl implements GetOrderById {
 
     // Aguarda apenas uma vez os métodos selecionados em vez de aguardar um por um;
     final responses = await Future.wait([paymentTypeFuture, userFuture, orderProductsFuture]);
-    print('print = Calculando tempo: ${DateTime.now().difference(start).inMilliseconds}');
     return OrderDto(
       id: order.id,
       date: order.date,
