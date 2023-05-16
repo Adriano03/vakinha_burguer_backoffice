@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../../../core/ui/helpers/debouncer.dart';
 import '../../../../core/ui/widgets/base_header.dart';

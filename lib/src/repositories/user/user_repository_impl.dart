@@ -8,7 +8,7 @@ import '../../models/user_model.dart';
 import './user_repository.dart';
 
 class UserRepositoryImpl implements UserRepository {
-  CustomDio _dio;
+  final CustomDio _dio;
   UserRepositoryImpl(
     this._dio,
   );
@@ -17,7 +17,6 @@ class UserRepositoryImpl implements UserRepository {
   Future<UserModel> getById(int id) async {
     try {
       final userResponse = await _dio.get('/users/$id');
-
       return UserModel.fromMap(userResponse.data);
     } on DioError catch (e, s) {
       log('Erro ao buscar o usuário', error: e, stackTrace: s);

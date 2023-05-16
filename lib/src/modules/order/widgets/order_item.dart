@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
-import '../../../core/rest_client/custom_dio.dart';
-import '../../../core/storage/storage.dart';
 import '../../../core/ui/styles/text_styles.dart';
 import '../../../models/orders/order_model.dart';
 import '../order_controller.dart';

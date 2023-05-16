@@ -19,12 +19,18 @@ class GetOrderByIdImpl implements GetOrderById {
   Future<OrderDto> call(OrderModel order) => _orderDtoParse(order);
 
   Future<OrderDto> _orderDtoParse(OrderModel order) async {
+    final start = DateTime.now();
+    
+    // Busca os dados com id do tipo de pagamento;
     final paymentTypeFuture = _paymentTypeRepository.getById(order.paymentTypeId);
+    // Busca os dados com o id do usuário;
     final userFuture = _userRepository.getById(order.userId);
+    // Popula o OrderProductDto;
     final orderProductsFuture = _orderProductParse(order);
 
+    // Aguarda apenas uma vez os métodos selecionados em vez de aguardar um por um;
     final responses = await Future.wait([paymentTypeFuture, userFuture, orderProductsFuture]);
-
+    print('print = Calculando tempo: ${DateTime.now().difference(start).inMilliseconds}');
     return OrderDto(
       id: order.id,
       date: order.date,
@@ -40,6 +46,7 @@ class GetOrderByIdImpl implements GetOrderById {
   Future<List<OrderProductDto>> _orderProductParse(OrderModel order) async {
     final orderProducts = <OrderProductDto>[];
 
+    // Faz um laço que bate no backend quantas vezes for preciso até pegar todos os produtos;
     final productsFuture =
         order.orderProducts.map((e) => _productRepository.getProduct(e.productId)).toList();
 

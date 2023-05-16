@@ -4,7 +4,13 @@ Projeto Flutter Web - Vakinha Burguer BackOffice
 
 ## Getting Started
 
-Projeto de backoffice para administrar o app vakinha_burguer desenvolvido pelo Rodrigo Rahman no evento DartWeek 10. Tem objetivo de administrar e controlar os dados que são exibidios e comprados pelo app.
+Projeto de backoffice para administrar o app vakinha_burguer que é um app de delivery onde o usuário pode comprar qualquer lanche, e foi desenvolvido pelo Rodrigo Rahman no evento DartWeek 9. Esse projeto foi desenvolvido no evento DartWeek 10 e tem objetivo de administrar e controlar os pedidos que são comprados pelo app. (O site web com o app mobile não tem ligação, e os dados informados são apenas exemplos de como seria essa ligação). O site contém a tela de login, depois de entrar é redirecionado para a home, onde tem um menu lateral com as opções, Administrar formas de pagamento, Administrar Produtos e os Pedidos do Dia.
+Em administrar formas de pagamento o usuário pode filtrar por tipos de pagamentos que estão ativos, inativos e todos. Pode adicionar mais formas de pagamentos informando o nome e a sigla, e também se está ativo ou inativo, caso aconteça do usuário cadastrar a forma de pagamento errado, é possível editar.
+Em Administrar Produto é onde fica todos os lanches cadastrados, podendo fazer a busca pelo nome e adicionar outros produtos, clicando em adicionar produto é aberto a tela de cadastro, podendo informar o nome, preço, adicionar foto e descrição, todos os campos tem validação e precisam ser informados. Depois de cadastrado o usuário pode editar e deletar o produto;
+Em pedidos do Dia é o local onde fica os pedidos que foram adicionando pelos usuários do app mobile, e são filtrados por dia, ou seja, na tela irá informar os pedidos do dia. E cada pedido tem 4 estados, são eles cancelado, confirmado, pendente e finalizado. Cada um pode ser filtrado pelo DropdownButton no header da página. Clicando no pedido vai abrir a modal de detalhes do pedido contendo uma lista de lanches comprados informando o nome, quantidade e valor, e mais abaixo o valor total da compra, endereço de entrega e forma de pagamento.
+Existe toda uma regra de negócio para habilitar ou desabilitar os botões de estado, por exemplo, se o pedido já tenha sido cancelado é impossível mudar o estado para finalizado ou confirmado. Se o pedido está pendente é preciso confirmar para só depois finalizar.
+
+O site é totalmente responsivo para cada tamanho de tela, foi utilizando o banco de dados local json_rest_server e para gerência de estado o mobx, e flutter modular para injeção de dependência. 
 
 Aula 1
 
@@ -58,7 +64,7 @@ Aula 5
 - Criação do modulo de pedido;
 - Criação do layout da tela de pedido;
 - Implementação do Order Data Layer;
-- implementação da tela de lista de pedidos;
+- Implementação da tela de lista de pedidos;
 - Criação da tela detalhe de pedido;
 
 
