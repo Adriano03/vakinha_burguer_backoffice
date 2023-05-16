@@ -1,9 +1,19 @@
 import 'package:flutter/material.dart';
 
 import '../../../../core/ui/styles/text_styles.dart';
+import '../../../../dto/order/order_dto.dart';
+import '../../../../models/orders/order_status.dart';
+import '../../order_controller.dart';
 
 class OrderBottomBar extends StatelessWidget {
-  const OrderBottomBar({super.key});
+  final OrderController controller;
+  final OrderDto order;
+
+  const OrderBottomBar({
+    super.key,
+    required this.controller,
+    required this.order,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -19,18 +29,18 @@ class OrderBottomBar extends StatelessWidget {
           buttonColor: Colors.blue,
           image: 'assets/images/icons/finish_order_white_ico.png',
           buttonLabel: 'Finalizar',
-          onPressed: () {
-            print('Botão 1');
-          },
+          onPressed: order.status == OrderStatus.confirmado
+              ? () => controller.changeStatus(OrderStatus.finalizado)
+              : null,
         ),
         OrderBottomBarButton(
           borderRadius: BorderRadius.zero,
           buttonColor: Colors.green,
           image: 'assets/images/icons/confirm_order_white_icon.png',
           buttonLabel: 'Confirmar',
-          onPressed: () {
-            print('Botão 2');
-          },
+          onPressed: order.status == OrderStatus.pendente
+              ? () => controller.changeStatus(OrderStatus.confirmado)
+              : null,
         ),
         OrderBottomBarButton(
           borderRadius: const BorderRadius.only(
@@ -40,9 +50,10 @@ class OrderBottomBar extends StatelessWidget {
           buttonColor: Colors.red,
           image: 'assets/images/icons/cancel_order_white_icon.png',
           buttonLabel: 'Cancelar',
-          onPressed: () {
-            print('Botão 3');
-          },
+          onPressed:
+              order.status != OrderStatus.cancelado && order.status != OrderStatus.finalizado
+                  ? () => controller.changeStatus(OrderStatus.cancelado)
+                  : null,
         ),
       ],
     );
@@ -54,7 +65,7 @@ class OrderBottomBarButton extends StatelessWidget {
   final Color buttonColor;
   final String image;
   final String buttonLabel;
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
 
   const OrderBottomBarButton({
     Key? key,
@@ -73,7 +84,7 @@ class OrderBottomBarButton extends StatelessWidget {
         height: 60,
         child: ElevatedButton(
           style: ElevatedButton.styleFrom(
-            side: BorderSide(color: buttonColor),
+            side: BorderSide(color: onPressed != null ? buttonColor : Colors.transparent),
             backgroundColor: buttonColor,
             shape: RoundedRectangleBorder(
               borderRadius: borderRadius,

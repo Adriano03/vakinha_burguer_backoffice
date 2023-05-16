@@ -60,3 +60,12 @@ Aula 5
 - Implementação do Order Data Layer;
 - implementação da tela de lista de pedidos;
 - Criação da tela detalhe de pedido;
+
+
+Aula 6
+
+- Implementação do User Data Layer;
+- Implementação do Order Service Layer;
+- Buscar dados do pedido e apresentar na tela de pedido;
+- Implementação da lógica dos botõs da tela detalhe do pedido;
+- Implementação do filtro de pedido.
